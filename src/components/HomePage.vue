@@ -28,6 +28,7 @@
 
         <div class="text-left bg-gray-50 p-8 pb-16 -mt-48 flex flex-col md:flex-row justify-center">
             <div class="mt-48 w-full md:w-3/4 text-center">
+                <h1>Assalamu'alaikum Warohmatullohi Wabarokatuh,</h1>
                 <h1>Kami Yang Berbahagia</h1>
 
                 <div class="mt-14 text-center md:text-left flex flex-col md:flex-row items-center justify-between">
@@ -39,7 +40,7 @@
                         </a>
 
                         <p class="text-sm mt-3 tracking-normal leading-relaxed text-justify text-gray-700">
-                            Anak pertama dari Ayah Anda Yohandi dan Ibu Romlah, juga sebagai kakak kelas dari Syifa di SMKN 14 Jakarta.
+                            Anak pertama dari Ayah Anda Yohandi dan Ibu Romlah.
                         </p>
                     </div>
                     <div class="w-full md:w-1/2">
@@ -70,7 +71,7 @@
                         </a>
 
                         <p class="text-sm mt-3 tracking-normal leading-relaxed text-justify text-gray-700">
-                            Putri ketiga dari Ayah Hari Subagyo dan Mamah Uun Yusroni, menjadi satu-satunya anak perempuan di keluarga Ayah Hari Subagyo.
+                            Putri ketiga dari Ayah Hari Subagyo dan Mamah Uun Yusroni.
                         </p>
                     </div>
                     <div class="w-full md:w-1/2 block md:hidden">
@@ -94,7 +95,7 @@
                 <p class="drop-shadow-lg">
                     Bermaksud mengundang {{ getCaller }} :
                 </p>
-                <h1 class="my-5 font-wedding text-5xl text-semibold text-wedding drop-shadow-lg">{{ name }}</h1>
+                <h1 class="my-5 font-wedding text-5xl text-semibold text-red-500 drop-shadow-lg">{{ name }}</h1>
                 <p class="drop-shadow-lg">
                     Untuk datang pada {{ getEvent }} pernikahan kami yang dilaksanakan pada : <br> 
                 </p>
@@ -160,7 +161,7 @@
                         <h2 class="font-wedding text-5xl">2021-<span class="text-pink-500">2022</span> </h2>
                         
                         <p class="mt-5 leading-relaxed text-justify pb-8 md:pl-8">
-                            Ternyata yang kita harapkan ga selamanya selalu terwujud. Mulai dari rencana lamaran tanggal 12 Juni dan pernikahan kita awal tahun 2023, Ternyata ada sebuah prank
+                            Ternyata yang kita harapkan tidak selamanya harus terwujud. Mulai dari rencana lamaran tanggal 12 Juni dan pernikahan kita awal tahun 2023, Ternyata ada sebuah prank
                             membuat kita selangkah lebih cepat untuk bersama. Semoga tetap lancar sampai hari pelaminan, dan menjadi istri lembut idaman. <br><br>
 
                             Salam, <br>
