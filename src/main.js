@@ -2,6 +2,17 @@ import Vue from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
 import './index.css'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faUser, faHeart, faMapLocation } from '@fortawesome/free-solid-svg-icons'
+import { faInstagram } from '@fortawesome/free-brands-svg-icons'
+
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+/* add icons to the library */
+library.add(faUser, faInstagram, faHeart, faMapLocation)
+
+/* add font awesome icon component */
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 
