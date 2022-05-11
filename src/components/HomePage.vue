@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full">
+    <div class="w-full text-gray-700">
         <div class="p-8 bg-gray-50 flex justify-center section-1">
             <div class="w-full sm:w-3/4 rounded-md bg-wedding relative shadow-xl shadow-black-500"></div>
             <div class="absolute text-white left-10 md:left-8 top-10 md:top-40 text-center" style="z-index: 10">
@@ -28,24 +28,31 @@
 
         <div class="text-left bg-gray-50 p-8 pb-16 -mt-48 flex flex-col md:flex-row justify-center">
             <div class="mt-48 w-full md:w-3/4 text-center">
-                <h1>Assalamu'alaikum Warohmatullohi Wabarokatuh,</h1>
-                <h1>Kami Yang Berbahagia</h1>
+                <h1>Assalamu'alaikum Warohmatullohi Wabarokatuh.</h1>
+                <p class="mt-3">
+                    Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah semoga ridho-Mu tercurah mengiringi pernikahan kami.
+                </p>
+                <h1 class="font-wedding text-4xl mt-16 text-wedding">
+                    <font-awesome-icon icon="fa-solid fa-ellipsis" />
+                    <span class="mx-8">Mempelai</span>
+                    <font-awesome-icon icon="fa-solid fa-ellipsis" />
+                </h1>
 
-                <div class="mt-14 text-center md:text-left flex flex-col md:flex-row items-center justify-between">
+                <div class="mt-14 text-center md:text-right flex flex-col md:flex-row items-center justify-between">
                     <div class="w-full md:w-1/2 pb-8 md:pr-8">
-                        <h2 class="font-wedding text-4xl text-semibold text-gray-800">Rizky Adjie Rahmansyah</h2>
-                        <a href="https://instagram.com/rizkalipa" target="blank" class="text-pink-500">
+                        <h2 class="font-wedding text-4xl text-semibold text-gray-800">Syifa Nadia</h2>
+                        <a href="https://instagram.com/syifanaddd_" target="blank" class="text-pink-500 underline underline-offset-2">
                             <font-awesome-icon icon="fa-brands fa-instagram" />
-                            rizkalipa
+                            syifanaddd_
                         </a>
 
-                        <p class="text-sm mt-3 tracking-normal leading-relaxed text-justify text-gray-700">
-                            Anak pertama dari Ayah Anda Yohandi dan Ibu Romlah.
+                        <p class="text-sm mt-3 tracking-normal leading-relaxed text-center md:text-right text-gray-700">
+                            Putri ketiga dari Ayah Hari Subagyo dan Mamah Uun Yusroni.
                         </p>
                     </div>
                     <div class="w-full md:w-1/2">
                         <div class="w-full relative z-0">
-                            <img src="@/assets/aji.jpg" alt="" class="rounded-lg shadow-xl shadow-black-500">
+                            <img src="@/assets/syifa.jpg" alt="" class="rounded-lg shadow-xl shadow-black-500">
                         </div>
                     </div>
                 </div>
@@ -53,7 +60,7 @@
                 <div class="mt-14 text-center md:text-left flex flex-col md:flex-row items-center justify-between">
                     <div class="w-full md:w-1/2 hidden md:block">
                         <div class="w-full relative z-0">
-                            <img src="@/assets/syifa.jpg" alt="" class="rounded-lg shadow-xl shadow-black-500">
+                            <img src="@/assets/aji.jpg" alt="" class="rounded-lg shadow-xl shadow-black-500">
                             <div class="">
                                 <div class="blob-2 w-56 md:w-96">
                                     <svg xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 350">
@@ -64,19 +71,19 @@
                         </div>
                     </div>
                     <div class="w-full md:w-1/2 pb-8 md:pl-8">
-                        <h2 class="font-wedding text-4xl text-semibold text-gray-800">Syifa Nadia</h2>
-                        <a href="https://instagram.com/syifanaddd_" target="blank" class="text-pink-500">
+                        <h2 class="font-wedding text-4xl text-semibold text-gray-800">Rizky Adjie Rahmansyah</h2>
+                        <a href="https://instagram.com/rizkalipa" target="blank" class="text-pink-500 underline underline-offset-2">
                             <font-awesome-icon icon="fa-brands fa-instagram" />
-                            syifanaddd_
+                            rizkalipa
                         </a>
 
-                        <p class="text-sm mt-3 tracking-normal leading-relaxed text-justify text-gray-700">
-                            Putri ketiga dari Ayah Hari Subagyo dan Mamah Uun Yusroni.
+                        <p class="text-sm mt-3 tracking-normal leading-relaxed text-center md:text-left text-gray-700">
+                            Anak pertama dari Ayah Anda Yohandi dan Ibu Romlah.
                         </p>
                     </div>
                     <div class="w-full md:w-1/2 block md:hidden">
                         <div class="w-full relative z-0">
-                            <img src="@/assets/syifa.jpg" alt="" class="rounded-lg shadow-xl shadow-black-500">
+                            <img src="@/assets/aji.jpg" alt="" class="rounded-lg shadow-xl shadow-black-500">
                             <div class="">
                                 <div class="blob-2 w-56 md:w-80">
                                     <svg xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 350">
@@ -92,13 +99,18 @@
 
         <div class="text-center p-8 section-3 flex flex-col md:flex-row justify-center">
             <div class="text-white w-full md:w-2/4 p-8 text-center rounded-lg backdrop-blur-sm bg-white/40">
-                <p class="drop-shadow-lg">
-                    Bermaksud mengundang {{ getCaller }} :
+                <p class="drop-shadow-lg">Dear{{ getCaller }},</p>
+                <h1 class="mt-5 drop-shadow-lg"><span class="font-wedding text-wedding text-semibold text-5xl">{{ name }}</span></h1>
+                
+                <hr>
+                <p class="drop-shadow-lg my-5">
+                    Tanpa mengurangi rasa hormat, izinkan kami mengundang dan berbagi momen paling 
+                    berbahagia untuk menghadiri resepsi pernikahan kami melalui undangan :
                 </p>
-                <h1 class="my-5 font-wedding text-5xl text-semibold text-red-500 drop-shadow-lg">{{ name }}</h1>
-                <p class="drop-shadow-lg">
-                    Untuk datang pada {{ getEvent }} pernikahan kami yang dilaksanakan pada : <br> 
-                </p>
+                <hr>
+
+                <h1 class="font-wedding text-5xl mt-5 drop-shadow-lg">{{ getEvent }}</h1>
+                <p v-if="schedule == 4">(Akad sudah dilakukan pada tanggal 29 Mei 2022)</p>
 
                 <p v-if="schedule == 29" class="mt-5 drop-shadow-lg p-3 leading-relaxed border border-white rounded-lg">
                     <span class="font-bold text-2xl">Minggu, 29 Mei 2022</span> <br><br>
@@ -109,10 +121,10 @@
                 <p v-else class="mt-5 drop-shadow-lg p-3 leading-relaxed border border-white rounded-lg">
                     <span class="font-bold text-2xl">Sabtu, 4 Juni 2022</span> <br><br>
                     Bertempat di Aula RPTRA Kelurahan Rawabunga (RPTRA Citra Permata), Jl. Jatinegara Timur IV No.65 Rawabunga, Kec. Jatinegara, Kota Jakarta Timur <br><br>
-                    Resepsi dimulai pukul 10.00 WIB
+                    {{ getEvent }} dimulai pukul 10.00 WIB
                 </p>
                 <div class="mt-8">
-                    <a class="py-4 px-10 rounded-lg bg-red-500" href="#location">
+                    <a class="py-4 px-10 rounded-lg btn-wedding shadow-lg shadow-black-500" href="#location">
                         <font-awesome-icon icon="fa-solid fa-map-location" />&nbsp;
                         Lihat Lokasi
                     </a>
@@ -131,17 +143,16 @@
 
         <div class="text-center bg-gray-50 p-8 py-16 flex flex-col items-center justify-center">
             <div class="w-full md:w-3/4">
-                <h1 class="font-wedding text-4xl">How we meet ?</h1>
+                <h1 class="">Cerita Singkat Kita.</h1>
 
-                <div class="mt-14 flex flex-col md:flex-row items-center justify-center">
+                <div class="mt-14 flex flex-col md:flex-row items-center justify-center text-gray-700">
                     <div class="w-full md:w-2/4">
-                        <h2 class="font-wedding text-5xl">2015-<span class="text-pink-500">2016</span> </h2>
-                        <p class="mt-5 leading-relaxed text-justify pb-8 md:pr-8">
-                            Tepat 5 tahun yang lalu di semester kedua dan menjelang akhir tahun 2015, walaupun sudah kenal sejak awal
-                            masuk sekolah, syifa ga berani buat ajak kenalan. <br><br>
-
-                            Sampai saat pertama kita bertemu di taman sekolah, pandangan pertama, tong sampah, dan invite pin bbm. scene pun berlanjut
-                            5 tahun kedepan melewati banyak kenangan dan suka duka kehidupan.
+                        <h2 class="font-wedding text-5xl">Awal <span class="text-gray-500">Pertemuan</span> </h2>
+                        <p class="mt-5 leading-relaxed text-justify md:text-right pb-8 md:pr-8">
+                            Kisah ini berawal dari pertemuan kita di Tahun 2015 saat masih sekolah 
+                            di SMKN 14 Jakarta. Saat itu syifa masih menjadi peserta didik baru dan terpesona 
+                            dengan Aji yang saat itu menjadi petugas upacara dan membacakan doa pada penerimaan 
+                            peserta didik baru 2015/2016, di saat itulah benih benih rasa cinta mulai tumbuh.
                         </p>
                     </div>
                     <div class="w-full md:w-2/4">
@@ -151,26 +162,36 @@
             </div>
 
             <div class="w-full md:w-3/4 mt-16">
-                <h1 class="font-wedding text-4xl">How its going ?</h1>
-
                 <div class="mt-14 flex flex-col md:flex-row items-center justify-center">
                     <div class="w-full md:w-2/4 hidden md:block">
                         <img src="@/assets/story-2.jpg" class="w-full rounded-lg shadow-lg shadow-black-500">
                     </div>
-                    <div class="w-full md:w-2/4">
-                        <h2 class="font-wedding text-5xl">2021-<span class="text-pink-500">2022</span> </h2>
+                    <div class="w-full md:w-2/4 text-gray-700">
+                        <h2 class="font-wedding text-5xl">Lamaran<span class="text-pink-500"></span> </h2>
                         
-                        <p class="mt-5 leading-relaxed text-justify pb-8 md:pl-8">
-                            Ternyata yang kita harapkan tidak selamanya harus terwujud. Mulai dari rencana lamaran tanggal 12 Juni dan pernikahan kita awal tahun 2023, Ternyata ada sebuah prank
-                            membuat kita selangkah lebih cepat untuk bersama. Semoga tetap lancar sampai hari pelaminan, dan menjadi istri lembut idaman. <br><br>
-
-                            Salam, <br>
-                            - Mbah Buyut, si raja lelembut.
-
+                        <p class="mt-5 leading-relaxed text-justify md:text-left pb-8 md:pl-8">
+                            Setelah sekian lama menjalani hubungan dan mulai saling menemukan 
+                            adanya rasa kecocokan satu sama lain akhirnya tanggal 20 Maret 2022 
+                            Aji bersama keluarga menyatakan serius untuk melamar syifa menjadi istrinya, 
+                            dan syifa menerimanya.
                         </p>
                     </div>
                     <div class="w-full md:w-2/4 block md:hidden">
                         <img src="@/assets/story-2.jpg" class="w-full rounded-lg shadow-lg shadow-black-500">
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full md:w-3/4 mt-16">
+                <div class="mt-14 flex justify-center">
+                    <div class="w-full text-gray-700">
+                        <h2 class="font-wedding text-5xl text-wedding">Akad Nikah</h2>
+                        
+                        <p class="mt-5 leading-relaxed text-justify md:text-center pb-8 md:pl-8">
+                            Mungkin perjalanan kisah cinta kami tidak mulus tetapi ketika Allah 
+                            sudah menetapkan jodoh seseorang, maka hal itu sudah menjadi kepastian untuk kami tetap dipertemukan. Hingga  
+                            dengan izin Allah SWT maka ditetapkanlah akad nikah kami pada tanggal 29 Mei 2022.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -184,7 +205,7 @@
         </div>
 
         <div class="text-center bg-gray-800 p-8 flex flex-col items-center justify-center">
-            <p class="text-gray-400 mb-5">2022 &copy; Developed By Syifa's <span class="text-pink-500"><font-awesome-icon icon="fa-solid fa-heart" /></span></p>
+            <p class="text-gray-400 mb-5">2022 &copy; Built and Designed by Syifa's <span class="text-pink-500"><font-awesome-icon icon="fa-solid fa-heart" /></span></p>
             <hr class="w-full border-1 border-gray-300">
 
             <p class="text-gray-400 mt-5">Lokasi</p>
@@ -210,19 +231,21 @@ export default {
     computed: {
         getCaller() {
             if (this.type == '2') {
-                return 'Saudara/i'
+                return ' Saudara/i'
+            } else if (this.type == '1') {
+                return ' Bapak/Ibu'
             } else {
-                return 'Bapak/Ibu'
+                return ''
             }
         },
         getEvent() {
             if (this.schedule == '29') {
-                return 'akad dan resepsi'
+                return 'Akad dan Resepsi.'
             } else if (this.schedule == '4') {
-                return 'acara resepsi (Akad nikah telah dilaksanakan pada 29 Mei) '
+                return 'Resepsi.'
             }
 
-            return ''
+            return 'Resepsi.'
         },
     },
     methods: {
@@ -289,6 +312,11 @@ export default {
 
     .text-wedding {
         color: #fc6b6b;
+    }
+
+    .btn-wedding {
+        background-color: #fc6b6b;
+        color: white;
     }
 
     .blob {
