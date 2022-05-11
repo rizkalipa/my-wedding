@@ -13,7 +13,7 @@
             </div>
         </Transition>
 
-        <div class="fixed w-full h-full z-10">
+        <div class="fixed z-10 top-0 bottom-0 right-0">
             <div class="w-full h-full flex flex-col items-end justify-end drop-shadow-lg text-center p-8">
                 <button v-if="isPlaying" @click="offMusic" class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white p-3 rounded-full shadow-lg shadow-black-500 mt-5 flex items-center">
                     <Transition name="slide-fade">
@@ -225,8 +225,38 @@
             </div>
         </div>
 
-        <div class="w-full p-8 py-36 section-1 flex justify-center">
+        <div class="w-full p-8 py-24 section-1 flex justify-center">
             <div class="text-center w-full md:w-3/4 flex-col items-center justify-center">
+                <div class="w-full flex-col md:flex-row flex items-center justify-between mb-24">
+                    <div class="w-full md:w-1/3 mb-5 md:mb-0">
+                        <div class="w-1/4 mx-auto md:mr-auto p-32 section-footer rounded-full"></div>
+                    </div>
+                    <div class="relative w-full md:w-2/3 border border-gray-700 backdrop-blur-sm bg-gray/20 rounded-lg p-8">
+                        <p class="absolute top-0 left-0 p-3 text-lg font-bold">
+                            <font-awesome-icon icon="fa-gift" />
+                        </p>
+                        
+                        <div class="w-full flex-col md:flex-row justify-between items-center mt-3">
+                            <div class="w-full md:w-1/2 mb-5 md:mb-0">
+                                <img src="@/assets/qr-bank.jpg" class="w-full rounded-lg">
+                            </div>
+
+                            <div class="w-full md:w-1/2">
+                                <div class="flex justify-center items-center">
+                                    <p class="font-extrabold text-sm">
+                                        BCA - 4960 136 867
+                                    </p>
+                                    <button @click="copyNumber" class="relative ml-3 bg-gray-500 hover:bg-gray-700 rounded-full p-2 text-white text-sm flex items-center shadow-lg shadow-gray-300" title="Salin">
+                                        <font-awesome-icon icon="fa-copy" />
+                                        <p v-if="copied" class="absolute left-8 text-sm bg-gray-700 opacity-60 px-1 py-1 rounded">Copied!</p>
+                                    </button>
+                                </div>
+                                <p class="text-sm">a/n Rizky Adjie Rahmansyah</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <h1 class="font-wedding text-4xl">Terima kasih.</h1>
                 <p>Semoga sehat selalu, dan sampai bertemu di tempat kami!</p>
 
@@ -261,7 +291,8 @@ export default {
             opened: false,
             audio: new Audio(),
             isPlaying: false,
-            isLabelShow: true
+            isLabelShow: true,
+            copied: false
         }
     },
     computed: {
@@ -330,6 +361,14 @@ export default {
         onMusic() {
             this.isPlaying = true
             this.audio.play()
+        },
+        copyNumber() {
+            this.copied = true
+            navigator.clipboard.writeText('4960136867')
+
+            window.setTimeout(() => {
+                this.copied = false
+            }, 2000)
         }
     },
     mounted() {
@@ -351,6 +390,11 @@ export default {
 
     .section-3 {
         background: url('@/assets/photo-2.jpg') no-repeat right center;
+        background-size: cover;
+    }
+
+    .section-footer {
+        background: url('@/assets/footer-banner.jpg') no-repeat left center;
         background-size: cover;
     }
 
