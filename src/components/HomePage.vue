@@ -1,5 +1,33 @@
 <template>
-    <div class="w-full text-gray-700">
+    <div class="w-full text-gray-700 relative">
+        <Transition name="fade">
+            <div v-if="!opened" class="cover-invitation fixed w-full top-0 bottom-0 right-0 left-0 z-30 backdrop-blur-lg bg-white/40">
+                <div class="w-full h-full flex flex-col items-center justify-center drop-shadow-lg text-center p-8">
+                    <h1 class="font-wedding text-wedding text-5xl">Welcome to Our Wedding</h1>
+
+                    <button class="btn-wedding py-2 px-5 rounded-full shadow-lg shadow-black-500 mt-5" @click="openInvitation">
+                        Buka Undangan &nbsp;
+                        <font-awesome-icon icon="fa-envelope-circle-check" />
+                    </button>
+                </div>
+            </div>
+        </Transition>
+
+        <div class="fixed w-full h-full z-10">
+            <div class="w-full h-full flex flex-col items-end justify-end drop-shadow-lg text-center p-8">
+                <button v-if="isPlaying" @click="offMusic" class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white p-3 rounded-full shadow-lg shadow-black-500 mt-5 flex items-center">
+                    <Transition name="slide-fade">
+                        <small v-if="isLabelShow" class="mr-2">Off Music</small>
+                    </Transition>
+                    <font-awesome-icon icon="fa-circle-stop" />
+                </button>
+
+                <button v-else @click="onMusic" class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white p-3 rounded-full shadow-lg shadow-black-500 mt-5 flex items-center">
+                    <font-awesome-icon icon="fa-circle-play" />
+                </button>
+            </div>
+        </div>
+
         <div class="p-8 bg-gray-50 flex justify-center section-1">
             <div class="w-full sm:w-3/4 rounded-md bg-wedding relative shadow-xl shadow-black-500"></div>
             <div class="absolute text-white left-10 md:left-8 top-10 md:top-40 text-center" style="z-index: 10">
@@ -198,9 +226,13 @@
         </div>
 
         <div class="w-full p-8 py-36 section-1 flex justify-center">
-            <div class="text-center w-full md:w-3/4">
+            <div class="text-center w-full md:w-3/4 flex-col items-center justify-center">
                 <h1 class="font-wedding text-4xl">Terima kasih.</h1>
                 <p>Semoga sehat selalu, dan sampai bertemu di tempat kami!</p>
+
+                <div class="w-full">
+                    <img src="@/assets/protocol.png" class="w-full md:w-1/2 mx-auto">
+                </div>
             </div>
         </div>
 
@@ -225,7 +257,11 @@ export default {
             name: '',
             type: '',
             schedule: '',
-            countdown: ''
+            countdown: '',
+            opened: false,
+            audio: new Audio(),
+            isPlaying: false,
+            isLabelShow: true
         }
     },
     computed: {
@@ -277,8 +313,26 @@ export default {
                 }
             }, 1000)
         },
+        openInvitation() {
+            this.opened = true
+            this.audio.src = require("../assets/backsound.mp3")
+            this.audio.volume = 0.1
+            this.onMusic()
+
+            window.setTimeout(() => {
+                this.isLabelShow = false
+            }, 4000)
+        },
+        offMusic() {
+            this.isPlaying = false
+            this.audio.pause()
+        },
+        onMusic() {
+            this.isPlaying = true
+            this.audio.play()
+        }
     },
-    created() {
+    mounted() {
         let params = (new URL(document.location)).searchParams;
         this.name = params.get("n");
         this.type = params.get("t");
@@ -351,5 +405,30 @@ export default {
         0%   { transform: scale(1)   translate(30px, -60px); }
         50% { transform: scale(1)   translate(98px, 100px); }
         100% { transform: scale(1)   translate(30px, -60px); }
+    }
+
+    /* we will explain what these classes do next! */
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 1s ease;
+    }
+
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0;
+    }
+
+    .slide-fade-enter-active {
+        transition: all 0.3s ease-out;
+    }
+
+    .slide-fade-leave-active {
+        transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+    }
+
+    .slide-fade-enter-from,
+    .slide-fade-leave-to {
+        transform: translateX(20px);
+        opacity: 0;
     }
 </style>
