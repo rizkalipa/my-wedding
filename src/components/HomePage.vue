@@ -236,7 +236,7 @@
                             <font-awesome-icon icon="fa-gift" />
                         </p>
                         
-                        <div class="w-full flex-col md:flex-row justify-between items-center mt-3">
+                        <div class="w-full flex flex-col md:flex-row justify-between items-center mt-3">
                             <div class="w-full md:w-1/2 mb-5 md:mb-0">
                                 <img src="@/assets/qr-bank.jpg" class="w-full rounded-lg">
                             </div>
