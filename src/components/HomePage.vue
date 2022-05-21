@@ -144,7 +144,7 @@
                     <span class="font-bold text-2xl">Minggu, 29 Mei 2022</span> <br><br>
                     Bertempat di Masjid Al Mabruk, Jl. Pisangan Baru III Pisangan Baru, Kec. Matraman, Kota Jakarta Timur <br><br>
                     Akad Nikah : 10.00 WIB <br>
-                    Resepsi dan Acara Adat: 12.30 WIB (Setelah Zuhur)
+                    Resepsi: 13.00 WIB (Setelah Zuhur)
                 </p>
                 <p v-else class="mt-5 drop-shadow-lg p-3 leading-relaxed border border-white rounded-lg">
                     <span class="font-bold text-2xl">Sabtu, 4 Juni 2022</span> <br><br>
@@ -232,27 +232,62 @@
                         <div class="w-1/4 mx-auto md:mr-auto p-32 section-footer rounded-full"></div>
                     </div>
                     <div class="relative w-full md:w-2/3 border border-gray-700 backdrop-blur-sm bg-gray/20 rounded-lg p-8">
-                        <p class="absolute top-0 left-0 p-3 text-lg font-bold">
-                            <font-awesome-icon icon="fa-gift" />
-                        </p>
-                        
-                        <div class="w-full flex flex-col md:flex-row justify-between items-center mt-3">
-                            <div class="w-full md:w-1/2 mb-5 md:mb-0">
-                                <img src="@/assets/qr-bank.jpg" class="w-full rounded-lg">
+                        <div class="absolute top-0 left-0 p-3 text-lg font-bold flex items-center">
+                            <div class="mr-8">
+                                <font-awesome-icon icon="fa-gift" />
                             </div>
 
-                            <div class="w-full md:w-1/2">
-                                <div class="flex justify-center items-center">
-                                    <p class="font-extrabold text-sm">
-                                        BCA - 4960 136 867
-                                    </p>
-                                    <button @click="copyNumber" class="relative ml-3 bg-gray-500 hover:bg-gray-700 rounded-full p-2 text-white text-sm flex items-center shadow-lg shadow-gray-300" title="Salin">
-                                        <font-awesome-icon icon="fa-copy" />
-                                        <p v-if="copied" class="absolute left-8 text-sm bg-gray-700 opacity-60 px-1 py-1 rounded">Copied!</p>
-                                    </button>
-                                </div>
-                                <p class="text-sm">a/n Rizky Adjie Rahmansyah</p>
+                            <div class="flex items-center">
+                                <a @click="toggleUser('r')" :class="isRizky ? 'border border-blue-500 text-blue-500 rounded-full' : 'bg-gray-200 text-gray-400 rounded-full'" class="cursor-pointer px-4 mr-3">
+                                    <font-awesome-icon icon="fa-child" />
+                                </a>
+
+                                <a @click="toggleUser('s')" :class="isSyifa ? 'border border-pink-500 text-pink-500 rounded-full' : 'bg-gray-200 text-gray-400 rounded-full'" class="cursor-pointer px-4 mr-3">
+                                    <font-awesome-icon icon="fa-child-dress" />
+                                </a>
                             </div>
+                        </div>
+                        
+                        <div class="float-left">
+                            <Transition name="fade-quick">
+                                <div v-if="isRizky" key="1" class="w-full flex flex-col md:flex-row justify-between items-center mt-6">
+                                    <div class="w-full md:w-1/2 mb-5 md:mb-0">
+                                        <img src="@/assets/qr-bank-aji.jpg" class="w-full rounded-lg">
+                                    </div>
+
+                                    <div class="w-full md:w-1/2">
+                                        <div class="flex justify-center items-center">
+                                            <p class="font-extrabold text-sm">
+                                                BCA - 4960 136 867
+                                            </p>
+                                            <button @click="copyNumber" class="relative ml-3 bg-gray-500 hover:bg-gray-700 rounded-full p-2 text-white text-sm flex items-center shadow-lg shadow-gray-300" title="Salin">
+                                                <font-awesome-icon icon="fa-copy" />
+                                                <p v-if="copied" class="absolute left-8 text-sm bg-gray-700 opacity-60 px-1 py-1 rounded">Copied!</p>
+                                            </button>
+                                        </div>
+                                        <p class="text-sm">a/n Rizky Adjie Rahmansyah</p>
+                                    </div>
+                                </div>
+
+                                <div v-else key="2" class="w-full flex flex-col md:flex-row justify-between items-center mt-6">
+                                    <div class="w-full md:w-1/2 mb-5 md:mb-0">
+                                        <img src="@/assets/qr-bank-syifa.jpg" class="w-full rounded-lg">
+                                    </div>
+
+                                    <div class="w-full md:w-1/2">
+                                        <div class="flex justify-center items-center">
+                                            <p class="font-extrabold text-sm">
+                                                BCA - 0020 0841 03
+                                            </p>
+                                            <button @click="copyNumber" class="relative ml-3 bg-gray-500 hover:bg-gray-700 rounded-full p-2 text-white text-sm flex items-center shadow-lg shadow-gray-300" title="Salin">
+                                                <font-awesome-icon icon="fa-copy" />
+                                                <p v-if="copied" class="absolute left-8 text-sm bg-gray-700 opacity-60 px-1 py-1 rounded">Copied!</p>
+                                            </button>
+                                        </div>
+                                        <p class="text-sm">a/n Syifa Nadia</p>
+                                    </div>
+                                </div>
+                            </Transition>
                         </div>
                     </div>
                 </div>
@@ -292,7 +327,9 @@ export default {
             audio: new Audio(),
             isPlaying: false,
             isLabelShow: true,
-            copied: false
+            copied: false,
+            isRizky: false,
+            isSyifa: false
         }
     },
     computed: {
@@ -369,6 +406,15 @@ export default {
             window.setTimeout(() => {
                 this.copied = false
             }, 2000)
+        },
+        toggleUser(user) {
+            if (user == 'r') {
+                this.isRizky = true
+                this.isSyifa = false
+            } else {
+                this.isSyifa = true
+                this.isRizky = false
+            }
         }
     },
     mounted() {
@@ -376,6 +422,14 @@ export default {
         this.name = params.get("n");
         this.type = params.get("t");
         this.schedule = params.get("s");
+
+        if (this.schedule == '29') {
+            this.isSyifa = true
+            this.isRizky = false
+        } else {
+            this.isRizky = true
+            this.isSyifa = false
+        }
 
         this.getCountdown()
     }
@@ -473,6 +527,18 @@ export default {
     .slide-fade-enter-from,
     .slide-fade-leave-to {
         transform: translateX(20px);
+        opacity: 0;
+    }
+
+    .fade-quick-enter-active{
+        transition: opacity 1s ease;
+    }
+    .fade-quick-leave-active {
+    
+    }
+
+    .fade-quick-enter,
+    .fade-quick-leave-to {
         opacity: 0;
     }
 </style>
