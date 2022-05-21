@@ -260,7 +260,7 @@
                                             <p class="font-extrabold text-sm">
                                                 BCA - 4960 136 867
                                             </p>
-                                            <button @click="copyNumber" class="relative ml-3 bg-gray-500 hover:bg-gray-700 rounded-full p-2 text-white text-sm flex items-center shadow-lg shadow-gray-300" title="Salin">
+                                            <button @click="copyNumber('4960136867')" class="relative ml-3 bg-gray-500 hover:bg-gray-700 rounded-full p-2 text-white text-sm flex items-center shadow-lg shadow-gray-300" title="Salin">
                                                 <font-awesome-icon icon="fa-copy" />
                                                 <p v-if="copied" class="absolute left-8 text-sm bg-gray-700 opacity-60 px-1 py-1 rounded">Copied!</p>
                                             </button>
@@ -279,7 +279,7 @@
                                             <p class="font-extrabold text-sm">
                                                 BCA - 0020 0841 03
                                             </p>
-                                            <button @click="copyNumber" class="relative ml-3 bg-gray-500 hover:bg-gray-700 rounded-full p-2 text-white text-sm flex items-center shadow-lg shadow-gray-300" title="Salin">
+                                            <button @click="copyNumber('0020084103')" class="relative ml-3 bg-gray-500 hover:bg-gray-700 rounded-full p-2 text-white text-sm flex items-center shadow-lg shadow-gray-300" title="Salin">
                                                 <font-awesome-icon icon="fa-copy" />
                                                 <p v-if="copied" class="absolute left-8 text-sm bg-gray-700 opacity-60 px-1 py-1 rounded">Copied!</p>
                                             </button>
@@ -399,9 +399,9 @@ export default {
             this.isPlaying = true
             this.audio.play()
         },
-        copyNumber() {
+        copyNumber(text) {
             this.copied = true
-            navigator.clipboard.writeText('4960136867')
+            navigator.clipboard.writeText(text)
 
             window.setTimeout(() => {
                 this.copied = false
